@@ -1,3 +1,3 @@
-# SQL-playground
+# Ejercicios básicos de SQL
 
-Ejercicios de SQL obtenidos de https://sql-playground.com/#
+- https://sql-playground.com/#
