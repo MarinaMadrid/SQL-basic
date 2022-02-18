@@ -55,3 +55,4 @@ SELECT nombre FROM fabricante
 WHERE nombre LIKE '____'; 
 
 -- 14. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
+SELECT * FROM fabricante LIMIT 5;
