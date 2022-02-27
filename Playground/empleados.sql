@@ -1,4 +1,4 @@
--- Empleados
+/*SQL Playground - Empleados*/
 
 -- Consultas sencillas
 -- 1. Lista el primer apellido de todos los empleados.
