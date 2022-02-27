@@ -47,48 +47,70 @@ SELECT nombre FROM producto;
 -- 2. Lista los nombres y los precios de todos los productos de la tabla producto.
 SELECT nombre, precio FROM producto;
 
--- 3. Lista el nombre de los productos que tienen un precio menor o igual a 120€.
+-- 3.1. Lista el nombre de los productos que tienen un precio menor o igual a 120€.
 SELECT nombre FROM producto
 WHERE precio <= 120;
 
--- 4. Lista el nombre de los productos que tienen un precio mayor o igual a 400€.
+-- 3.2. Lista todas las columnas de la tabla PRODUCTO;
+SELECT * FROM producto;
+
+-- 4.1. Lista el nombre de los productos que tienen un precio mayor o igual a 400€.
 SELECT nombre FROM producto
 WHERE precio >= 400;
 
--- 5. Lista el nombre de los productos que no tienen un precio mayor o igual a 400€.
+-- 4.2. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD).
+
+-- 5.1. Lista el nombre de los productos que no tienen un precio mayor o igual a 400€.
 SELECT nombre FROM producto
 WHERE precio < 400;
 
--- 6. Lista todos los productos que tengan un precio entre 80€ y 300€.
+/* 5.2. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD). 
+Utiliza los siguientes alias para las columnas: nombre de producto, euros, dólares.*/
+
+-- 6.1. Lista todos los productos que tengan un precio entre 80€ y 300€.
 SELECT * FROM producto
 WHERE precio BETWEEN 80 AND 300;
 
--- 7. Lista todos los productos que tengan un precio mayor que 200€ y que el código de fabricante sea igual a 6.
+-- 6.2. Lista los nombres y los precios de todos los productos de la tabla producto, convirtiendo los nombres a mayúscula.
+
+-- 7.1. Lista todos los productos que tengan un precio mayor que 200€ y que el código de fabricante sea igual a 6.
 SELECT * FROM producto
 WHERE precio > 200
 AND codigo_fabricante = 6;
 
--- 8. Lista todos los productos donde el código de fabricante sea 1, 3 o 5.
+-- 7.2. Lista los nombres y los precios de todos los productos de la tabla producto, convirtiendo los nombres a minúscula.
+
+-- 8.1.  Lista todos los productos donde el código de fabricante sea 1, 3 o 5.
 SELECT * FROM producto
 WHERE codigo_fabricante = 1 OR codigo_fabricante = 3 OR codigo_fabricante = 5;
 
 SELECT * FROM producto
 WHERE codigo_fabricante IN (1,3,5);
 
--- 9. Lista el nombre y el precio de los productos en céntimos (Habrá que multiplicar por 100 el valor del precio).
+-- 8.2. Lista el nombre de todos los fabricantes en una columna, y en otra columna obtenga en mayúsculas los dos primeros caracteres del nombre del fabricante.
+
+-- 9.1.  Lista el nombre y el precio de los productos en céntimos (Habrá que multiplicar por 100 el valor del precio).
 SELECT nombre, precio * 100 FROM producto;
 
--- 10. Lista los nombres de los fabricantes cuyo nombre empiece por la letra S.
+-- 9.2. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio.
+
+-- 10.1. Lista los nombres de los fabricantes cuyo nombre empiece por la letra S.
 SELECT nombre FROM fabricante
 WHERE nombre LIKE 'S%';
 
--- 11. Lista los nombres de los fabricantes cuyo nombre termine por la vocal e.
+-- 10.2. Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna cifra decimal.
+
+-- 11.1. Lista los nombres de los fabricantes cuyo nombre termine por la vocal e.
 SELECT nombre FROM fabricante
 WHERE nombre LIKE '%e';
 
--- 12. Lista los nombres de los fabricantes cuyo nombre contenga el carácter w.
+-- 11.2.Lista el código de los fabricantes que tienen productos en la tabla producto.
+
+-- 12.1. Lista los nombres de los fabricantes cuyo nombre contenga el carácter w.
 SELECT nombre FROM fabricante
 WHERE nombre LIKE '%w%';
+
+-- 12.2. Lista el código de los fabricantes que tienen productos en la tabla producto, eliminando los códigos que aparecen repetidos.
 
 -- 13. Lista los nombres de los fabricantes cuyo nombre sea de 4 caracteres.
 SELECT nombre FROM fabricante
@@ -97,7 +119,8 @@ WHERE nombre LIKE '____';
 -- 14. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
 SELECT * FROM fabricante LIMIT 5;
 
--- 15. Devuelve una lista con 2 filas a partir de la cuarta fila de la tabla fabricante. La cuarta fila también se debe incluir en la respuesta.
+/* 15. Devuelve una lista con 2 filas a partir de la cuarta fila de la tabla fabricante. 
+La cuarta fila también se debe incluir en la respuesta.*/
 SELECT * FROM fabricante LIMIT 3, 2;
 
 -- 16. Lista los nombres de los fabricantes ordenados de forma ascendente.
@@ -108,14 +131,18 @@ ORDER BY nombre ASC;
 SELECT nombre FROM fabricante 
 ORDER BY nombre DESC;
 
--- 18. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente.
+-- 18.1.  Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente.
 SELECT nombre, precio FROM producto 
 ORDER BY nombre ASC, precio DESC;
 
--- 19. Lista el nombre y el precio de todos los productos que tengan un precio mayor o igual a 180€. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente).
+-- 18.2. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
+
+-- 19.1. Lista el nombre y el precio de todos los productos que tengan un precio mayor o igual a 180€. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente).
 SELECT nombre, precio FROM producto 
 WHERE precio>=180 
 ORDER BY precio DESC, nombre ASC;
+
+-- 19.2. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 
 -- 20. Calcula el número total de productos que hay en la tabla productos.
 SELECT COUNT(nombre) FROM producto;
