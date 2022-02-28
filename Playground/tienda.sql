@@ -212,6 +212,8 @@ Utiliza los siguientes alias para las columnas: nombre de producto, euros, dóla
 
 -- 50. Calcula el número total de fabricantes que hay en la tabla fabricante.
 
+-- 51. Devuelve un listado con los nombres de los fabricantes que tienen 2 o más productos.
+
 
 -- Consultas multitabla (Composición interna)
 -- 1. Devuelve una lista el nombre del producto, precio y nombre de fabricante para todos los productos de la base de datos.
@@ -350,7 +352,6 @@ Es necesario mostrar el nombre del fabricante.*/
 
 -- Calcula el número de productos que tiene cada fabricante con un precio mayor o igual a 180€.
 
--- Devuelve un listado con los nombres de los fabricantes que tienen 2 o más productos.
 
 /*Devuelve un listado con los nombres de los fabricantes y el número de productos que tiene cada uno con un precio superior o igual a 220 €. 
 No es necesario mostrar el nombre de los fabricantes que no tienen productos que cumplan la condición.*/
