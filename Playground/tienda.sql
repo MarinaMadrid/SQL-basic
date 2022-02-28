@@ -202,8 +202,10 @@ FROM fabricante;
 SELECT nombre, ROUND(precio, 2) FROM producto;
 
 -- 40. Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna cifra decimal.
+SELECT nombre, TRUNCATE(precio, 0) FROM producto;
 
 -- 41.Lista el código de los fabricantes que tienen productos en la tabla producto.
+
 
 -- 42. Lista el código de los fabricantes que tienen productos en la tabla producto, eliminando los códigos que aparecen repetidos.
 
@@ -222,9 +224,33 @@ SELECT nombre, ROUND(precio, 2) FROM producto;
 -- 49. Devuelve una lista con el nombre de todos los productos que contienen la cadena Monitor en el nombre y tienen un precio inferior a 215 €.
 
 -- 50. Calcula el número total de fabricantes que hay en la tabla fabricante.
+SELECT DISTINCT COUNT(nombre) FROM fabricante;
 
 -- 51. Devuelve un listado con los nombres de los fabricantes que tienen 2 o más productos.
 
+-- 52. Calcula el número de productos que tiene el fabricante Asus.
+SELECT COUNT(nombre) FROM producto 
+WHERE codigo_fabricante = 1;
+
+-- 53. Calcula la media del precio de todos los productos del fabricante Asus.
+SELECT AVG(precio) FROM producto 
+WHERE codigo_fabricante = 1;
+
+-- 54. Calcula el precio más barato de todos los productos del fabricante Asus.
+SELECT MIN(precio) FROM producto 
+WHERE codigo_fabricante = 1;
+
+-- 55. Calcula el precio más caro de todos los productos del fabricante Asus.
+SELECT MAX(precio) FROM producto 
+WHERE codigo_fabricante = 1;
+
+-- 56. Calcula la suma de todos los productos del fabricante Asus.
+SELECT SUM(precio) FROM producto 
+WHERE codigo_fabricante = 1;
+
+-- 57. Muestra el precio máximo, precio mínimo, precio medio y el número total de productos que tiene el fabricante Crucial.
+SELECT MAX(precio), MIN(precio), AVG(precio), COUNT(nombre) FROM producto
+WHERE codigo_fabricante = 6;
 
 -- Consultas multitabla (Composición interna)
 -- 1. Devuelve una lista el nombre del producto, precio y nombre de fabricante para todos los productos de la base de datos.
@@ -335,18 +361,6 @@ WHERE codigo_fabricante = fabricante.codigo);
 
 
 -- Resumen
--- Calcula el número de productos que tiene el fabricante Asus.
-
--- Calcula la media del precio de todos los productos del fabricante Asus.
-
--- Calcula el precio más barato de todos los productos del fabricante Asus.
-
--- Calcula el precio más caro de todos los productos del fabricante Asus.
-
--- Calcula la suma de todos los productos del fabricante Asus.
-
--- Muestra el precio máximo, precio mínimo, precio medio y el número total de productos que tiene el fabricante Crucial.
-
 /*Muestra el número total de productos que tiene cada uno de los fabricantes.
 El listado también debe incluir los fabricantes que no tienen ningún producto. 
 El resultado mostrará dos columnas, una con el nombre del fabricante y otra con el número de productos que tiene. 
