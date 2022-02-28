@@ -178,17 +178,28 @@ WHERE precio >= 180;
 SELECT * FROM producto;
 
 -- 34. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD).
+-- Sin redondear
+SELECT nombre, precio as '€', precio / 0.89 as 'USD' FROM producto;
+
+-- Redondeando
+SELECT nombre, precio as '€', ROUND(precio / 0.89, 2) as 'USD' FROM producto;
 
 /* 35. Lista el nombre de los productos, el precio en euros y el precio en dólares estadounidenses (USD). 
 Utiliza los siguientes alias para las columnas: nombre de producto, euros, dólares.*/
+SELECT nombre as 'nombre de producto', precio as 'euros', precio / 0.89 as 'dólares' FROM producto;
 
 -- 36. Lista los nombres y los precios de todos los productos de la tabla producto, convirtiendo los nombres a mayúscula.
+SELECT UPPER(nombre), precio FROM producto;
 
 -- 37. Lista los nombres y los precios de todos los productos de la tabla producto, convirtiendo los nombres a minúscula.
+SELECT LOWER(nombre), precio FROM producto;
 
 -- 38. Lista el nombre de todos los fabricantes en una columna, y en otra columna obtenga en mayúsculas los dos primeros caracteres del nombre del fabricante.
+SELECT nombre, UPPER(SUBSTR(nombre, 1, 2)) as siglas
+FROM fabricante;
 
 -- 39. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio.
+SELECT nombre, ROUND(precio, 2) FROM producto;
 
 -- 40. Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna cifra decimal.
 
