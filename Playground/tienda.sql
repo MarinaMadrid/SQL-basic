@@ -73,6 +73,10 @@ AND codigo_fabricante = 6;
 SELECT * FROM producto
 WHERE codigo_fabricante = 1 OR codigo_fabricante = 3 OR codigo_fabricante = 5;
 
+-- Otra forma sin operador IN
+SELECT * FROM producto
+WHERE codigo_fabricante = 1 <> 3 <> 5;
+
 -- Con operador IN
 SELECT * FROM producto
 WHERE codigo_fabricante IN (1,3,5);
